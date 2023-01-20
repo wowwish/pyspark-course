@@ -1,14 +1,14 @@
-# Figure out the most popular movie by counting the number of ratings by movie
+# Figure out the most popular movie by counting the number of ratings by movie - other approach
 # Here, we print the movie name along with the movie ID
 # The "u.item" of the MovieLens dataset gives us the mapping for MovieID - Movie Name
 # We could use a DataSet to map movie ID's to names, then join it with our ratings dataset - but this comes 
 # with unneccessary overhead and is suitable only when our dataset has so many unique movie IDs to than what 
 # can be fit in the memory of a single executor machine (which is not the case - not much data in our case).
 # We could also just keep a dictionary loaded in this driver program by reading the "u.item" file, or we could 
-# even let SPARK automatically forward it to each executor when needed. But what if the table was massive ? 
-# We'd only want to transfer it once to each executor and keep it there (as a Broadcast variable).
+# even let SPARK automatically forward it to each executor (worker node) when needed. But what if the table was massive ? 
+# We'd only want to transfer it once to each executor (worker node) and keep it there (as a Broadcast variable).
 
-# We can Broadcast objects to the executors, such that they are always there whenever needed, using sc.broadcast(obj) on SparkContext object.
+# We can Broadcast objects to the executors (worker nodes), such that they are always there whenever needed, using sc.broadcast(obj) on SparkContext object.
 # The object can be got by using obj.value(). The Boradcaster object can be used however you want (in map functions, UDFs, etc)
 
 from pyspark.sql import SparkSession

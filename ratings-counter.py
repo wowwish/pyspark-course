@@ -1,7 +1,7 @@
 # Spark is a fast and general engine for large-scale data processing
 # The driver script is code written in Python, Java, or Scala that can be scaled across multiple executor
-# nodes and managed by the cluster manager (head node). Spark can be used with its default cluster manager or
-# using YARN (Hadoop cluster manager). 
+# nodes / worker nodes and managed by the cluster manager (head node). Spark can be used with its default 
+# cluster manager or using YARN (Hadoop cluster manager). 
 # Multiple executor nodes can be in the same machine (ideally, one executor just uses up one CPU core)
 # SPARK can farm out and distribute the work from the driver code into multiple executors and simultaneously
 # provide fault-tolerance, should some executors fail during the farming process, preventing the need to 
